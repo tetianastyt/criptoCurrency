@@ -9,7 +9,8 @@ import {
     allRatesSelector,
     selectedCryptoWidgetSelector,
     selectedNatCurrSelector,
-    volumeSelector
+    volumeSelector,
+    sumSelector
 } from "../../engine/core/cryptocurrencies/selectors";
 
 function useRates() {
@@ -48,7 +49,7 @@ function ForDoingCalculator() {
                 )))}
             </div>
             <div className="selected_curr" >
-                Selected coin: {selectedCryptoWidget.toUpperCase()}
+                Selected coin: <b> {selectedCryptoWidget.toUpperCase()} </b>
             </div>
             <Input />
             <Select />
@@ -61,14 +62,15 @@ function Result() {
     const selectedNationalCurr = useSelector(selectedNatCurrSelector);
     const volume = useSelector(volumeSelector);
     const selectedCryptoWidget = useSelector(selectedCryptoWidgetSelector);
+    const sum = useSelector(sumSelector);
     useEffect(() => {
 
-    }, [volume, selectedNationalCurr, selectedNationalCurr ]);
+    }, [volume, selectedNationalCurr, selectedNationalCurr]);
 
     return (
         <>
             <b>{volume} {selectedCryptoWidget.toUpperCase()} </b>
-            will be <b>SUM</b> in <b>{selectedNationalCurr}</b>
+            will be <b>{sum}</b> in <b>{selectedNationalCurr.toUpperCase()}</b>
         </>
     )
 }

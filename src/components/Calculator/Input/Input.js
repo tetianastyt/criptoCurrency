@@ -9,7 +9,7 @@ function Input() {
 
     const volumeOnChange = useCallback((ev) => {
         const value = ev.target.value;
-        dispatch(setVolume(value));
+            dispatch(setVolume(value));
     }, [dispatch]);
 
     useEffect(() => {
@@ -17,11 +17,15 @@ function Input() {
     }, []);
 
     return (
+        <>
+        Volume:
         <input
             className="styledInput"
             ref={textInput}
             onChange={volumeOnChange}
+            placeholder="1234567890"
         />
+        </>
     );
 }
 

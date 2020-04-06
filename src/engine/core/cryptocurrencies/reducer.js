@@ -2,19 +2,19 @@ import * as types from './types';
 
 const initialState = {
     allRates: [],
-    BTCrates: {},
+    /*BTCrates: {},
     ETHrates: {},
-    XRPrates: {},
+    XRPrates: {},*/
     error: null,
     selectedCryptoWidget: "btc",
-    selectedNationalCurr: "USD",
+    selectedNationalCurr: "usd",
     volume: ''
 };
 
 export function cryptoReducer(state = initialState, action) {
     const {type, payload} = action;
     switch (type) {
-        case types.SET_BTC_EX_RATE: {
+        /*case types.SET_BTC_EX_RATE: {
             return {
                 ...state, //new state
                 BTCrates: payload
@@ -31,7 +31,7 @@ export function cryptoReducer(state = initialState, action) {
                 ...state, //new state
                 XRPrates: payload
             }
-        }
+        }*/
         case types.SET_ALL_EX_RATES: {
             return {
                 ...state,

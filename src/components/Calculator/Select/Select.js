@@ -22,9 +22,9 @@ function Select() {
                                    defaultValue={selectedNationalCurr}
                                    className="buttons_group"
                                    onChange={handleChangeSelect}>
-                    <ToggleButton value={"USD"} className="btn">USD</ToggleButton>
-                    <ToggleButton value={"UAH"} className="btn">UAH</ToggleButton>
-                    <ToggleButton value={"RUB"} className="btn">RUB</ToggleButton>
+                    <ToggleButton value={"usd"} className="btn">USD</ToggleButton>
+                    <ToggleButton value={"uah"} className="btn">UAH</ToggleButton>
+                    <ToggleButton value={"rub"} className="btn">RUB</ToggleButton>
                 </ToggleButtonGroup>
             </div>
     )

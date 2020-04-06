@@ -1,8 +1,5 @@
 import {apply, put, call} from 'redux-saga/effects'
-import {
-    setBTCexchangeRate, setETHexchangeRate,
-    setXRPexchangeRate, setAllExchangeRates, setError
-} from '../../actions'
+import {setAllExchangeRates, setError} from '../../actions'
 import Api from '../../../../services/api/index';
 
 export function* callGetRatesWorker() {
@@ -12,7 +9,7 @@ export function* callGetRatesWorker() {
         if (response && response.status >= 200 && response.status < 400) {
             const responseData = response.data;
             rates.push(responseData);
-            yield put(setBTCexchangeRate(responseData));
+            //yield put(setBTCexchangeRate(responseData));
         }
     } catch (err) {
         yield put(setError(err));
@@ -22,8 +19,8 @@ export function* callGetRatesWorker() {
         if (response && response.status >= 200 && response.status < 400) {
             const responseData = response.data;
             rates.push(responseData);
-            console.log(rates);
-            yield put(setETHexchangeRate(responseData))
+            //console.log(rates);
+            //yield put(setETHexchangeRate(responseData))
         }
     } catch (err) {
         yield put(setError(err));
@@ -33,7 +30,7 @@ export function* callGetRatesWorker() {
         if (response && response.status >= 200 && response.status < 400) {
             const responseData = response.data;
             rates.push(responseData);
-            yield put(setXRPexchangeRate(responseData))
+            //yield put(setXRPexchangeRate(responseData))
         }
     } catch (err) {
         yield put(setError(err));

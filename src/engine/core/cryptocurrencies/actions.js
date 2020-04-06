@@ -1,7 +1,7 @@
 import * as types from "./types";
 //import Api from '../../services/api/index';
 
-export const setBTCexchangeRate = (data) => ({
+/*export const setBTCexchangeRate = (data) => ({
     type: types.SET_BTC_EX_RATE,
     payload: data,
 });
@@ -12,7 +12,7 @@ export const setETHexchangeRate = (data) => ({
 export const setXRPexchangeRate = (data) => ({
     type: types.SET_XRP_EX_RATE,
     payload: data,
-});
+});*/
 export const setAllExchangeRates = (data) => ({
     type: types.SET_ALL_EX_RATES,
     payload: data,
