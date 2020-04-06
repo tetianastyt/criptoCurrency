@@ -1,0 +1,19 @@
+.currency__card {
+    padding: 25px 20px;
+    background: #0d2f52;
+    display: flex;
+}
+.currency__card p{
+    margin-top: 10px;
+    font-weight: bold;
+}
+.left {
+}
+.right {
+    font-weight: bold;
+}
+.right ul{
+    font-weight: bold;
+    text-align: left;
+    list-style-type: none;
+}

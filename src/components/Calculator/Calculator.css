@@ -1,0 +1,44 @@
+.wrapper1 {
+    width: 78%;
+    margin: 0 auto;
+}
+.crypto_currency_cards {
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 18px;
+    padding: 10% 0 6%;
+}
+.selected_curr {
+    color: #7dacf3;
+    font-weight: normal;
+    padding-bottom: 40px;
+}
+.styledInput {
+    border: 1px solid #7dacf3;
+    background-color: transparent;
+    color: #326f87;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 20px;
+    width: 37%;
+    margin-bottom: 40px;
+}
+.btn {
+    display: inline-block;
+    color: #86c551;
+    background-color: #0d2f52;
+    vertical-align: middle;
+    user-select: none;
+    margin: 0 14px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+@media screen and (max-width: 1010px) {
+    .right{
+        text-align: center;
+        margin-left: 0;
+    }
+    .crypto_currency_cards{
+        grid-template-columns: auto;
+    }
+}

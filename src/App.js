@@ -1,13 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from "react-redux";
+import Calculator from "./components/Calculator/Calculator";
 import './App.css';
+import {store} from "./engine/init/store";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        redvsv
-      </header>
+        <Provider store={store}>
+            <div className="App">
+                <Calculator />
+            </div>
+        </Provider>
     </div>
   );
 }
