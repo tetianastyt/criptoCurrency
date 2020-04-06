@@ -14,16 +14,6 @@
     font-weight: normal;
     padding-bottom: 40px;
 }
-.styledInput {
-    border: 1px solid #7dacf3;
-    background-color: transparent;
-    color: #326f87;
-    font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 20px;
-    width: 37%;
-    margin-bottom: 40px;
-}
 .btn {
     display: inline-block;
     color: #86c551;

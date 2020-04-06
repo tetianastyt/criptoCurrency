@@ -1,14 +1,20 @@
-import React, {useEffect, useRef, useCallback} from 'react';
-import { useSelector, useDispatch } from "react-redux";
+import React, {useEffect, useCallback} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import './Calculator.css';
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
-import ToggleButton from "react-bootstrap/ToggleButton";
 import { asyncActions } from "../../engine/core/cryptocurrencies/saga/asyncActions"
 import CryptoCurrencyFile from "./CryptoCurrencyFile/CryptoCurrencyFile";
+import Input from "./Input/Input";
+import Select from "./Select/Select";
+import {
+    allRatesSelector,
+    selectedCryptoWidgetSelector,
+    selectedNatCurrSelector,
+    volumeSelector
+} from "../../engine/core/cryptocurrencies/selectors";
 
 function useRates() {
     const dispatch = useDispatch();
-    const allRates = useSelector(state => state.cryptocurrencies.allRates);
+    const allRates = useSelector(allRatesSelector);
 
     const getRequest = useCallback(()  => {
         dispatch(asyncActions.setAllExchangeRateAsync());
@@ -22,10 +28,10 @@ function useRates() {
 
 function ForDoingCalculator() {
     const { data, getRequest } = useRates();
-    const textInput = useRef(null);
-   useEffect(() => {
+    const selectedCryptoWidget = useSelector(selectedCryptoWidgetSelector);
+
+    useEffect(() => {
        getRequest();
-       textInput.current.focus();
     }, [getRequest]);
 
     return (
@@ -38,26 +44,33 @@ function ForDoingCalculator() {
                     usd={curr.usd}
                     uah={curr.uah}
                     rub={curr.rub}
-                    />
+                     />
                 )))}
             </div>
-            <div className="selected_curr">
-                Selected coin: BTN
+            <div className="selected_curr" >
+                Selected coin: {selectedCryptoWidget.toUpperCase()}
             </div>
-            <div>
-                <b>Volume:</b>
-                <input className="styledInput" ref={textInput}/>
-            </div>
-            <div className="national_currs">
-                <ToggleButtonGroup type="radio" name="currency" className="buttons_group" /*value={value} onChange={handleChange}*/>
-                    <ToggleButton name="USD" value="USD" className="btn">USD</ToggleButton>
-                    <ToggleButton name="UAH" value="UAH" className="btn">UAH</ToggleButton>
-                    <ToggleButton name="RUR" value="RUB" className="btn">RUB</ToggleButton>
-                </ToggleButtonGroup>
-            </div>
-            <b>VOLUME SELECTED COIN</b> will be <b>SUM</b> in <b>NAT CURR</b>
+            <Input />
+            <Select />
+            <Result />
         </div>
     );
+}
+
+function Result() {
+    const selectedNationalCurr = useSelector(selectedNatCurrSelector);
+    const volume = useSelector(volumeSelector);
+    const selectedCryptoWidget = useSelector(selectedCryptoWidgetSelector);
+    useEffect(() => {
+
+    }, [volume, selectedNationalCurr, selectedNationalCurr ]);
+
+    return (
+        <>
+            <b>{volume} {selectedCryptoWidget.toUpperCase()} </b>
+            will be <b>SUM</b> in <b>{selectedNationalCurr}</b>
+        </>
+    )
 }
 
 function Calculator() {
