@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import './Calculator.css';
 import { asyncActions } from "../../engine/core/cryptocurrencies/saga/asyncActions"
@@ -13,27 +13,14 @@ import {
     sumSelector
 } from "../../engine/core/cryptocurrencies/selectors";
 
-function useRates() {
-    const dispatch = useDispatch();
-    const allRates = useSelector(allRatesSelector);
-
-    const getRequest = useCallback(()  => {
-        dispatch(asyncActions.setAllExchangeRateAsync());
-    }, [dispatch]);
-
-    return {
-        data: allRates,
-        getRequest
-    }
-}
-
 function ForDoingCalculator() {
-    const { data, getRequest } = useRates();
+    const dispatch = useDispatch();
     const selectedCryptoWidget = useSelector(selectedCryptoWidgetSelector);
+    const data = useSelector(allRatesSelector);
 
     useEffect(() => {
-       getRequest();
-    }, [getRequest]);
+        dispatch(asyncActions.setAllExchangeRateAsync())
+    }, [dispatch]);
 
     return (
         <div className="wrapper1">

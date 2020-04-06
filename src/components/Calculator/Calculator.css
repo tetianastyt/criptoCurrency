@@ -14,20 +14,7 @@
     font-weight: normal;
     padding-bottom: 40px;
 }
-.btn {
-    display: inline-block;
-    color: #86c551;
-    background-color: #0d2f52;
-    vertical-align: middle;
-    user-select: none;
-    margin: 0 14px;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
 @media screen and (max-width: 1010px) {
-    .right{
-        text-align: center;
-        margin-left: 0;
-    }
     .crypto_currency_cards{
         grid-template-columns: auto;
     }
