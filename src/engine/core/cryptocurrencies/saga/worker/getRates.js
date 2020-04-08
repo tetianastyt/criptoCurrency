@@ -3,9 +3,8 @@ import {setAllExchangeRates, setError, setIsLoading} from '../../actions'
 import Api from '../../../../services/api/index';
 
 export function* callGetRatesWorker() {
-    var rates = [];
-
-    yield put(setIsLoading(true))
+    let rates = [];
+    yield put(setIsLoading(true));
     try {
         const response = yield call(Api.getBTCexchangeRate);
         if (response && response.status >= 200 && response.status < 400) {
@@ -37,8 +36,8 @@ export function* callGetRatesWorker() {
     } catch (err) {
         yield put(setError(err));
     }
-    yield put(setAllExchangeRates(rates))
-    yield put(setIsLoading(false))
+    yield put(setAllExchangeRates(rates));
+    yield put(setIsLoading(false));
 }
 
 

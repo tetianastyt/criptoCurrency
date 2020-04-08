@@ -10,7 +10,7 @@ function Result() {
 
     useEffect(() => {
 
-    }, [sum]);
+    }, [selectedCryptoWidget, selectedNationalCurr, volume]);
 
     return (
         <>

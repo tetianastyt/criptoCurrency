@@ -23,21 +23,19 @@ function ForDoingCalculator() {
         {
         isLoading ?
                 (<img src={Loader} alt="Loader" className="loader"/>) :
-                (
-                        <div className="wrapper1">
-                            <div className="crypto_currency_cards">
-                                {(data.map(curr => (
-                                    <CryptoCurrencyFile
-                                        key={curr.currency}
-                                        name={curr.currency}
-                                        usd={curr.usd}
-                                        uah={curr.uah}
-                                        rub={curr.rub}
-                                    />
-                                )))}
-                            </div>
-                        </div>
-                )
+            (
+                <div className="crypto_currency_cards">
+                    {(data.map(curr => (
+                        <CryptoCurrencyFile
+                            key={curr.currency}
+                            name={curr.currency}
+                            usd={curr.usd}
+                            uah={curr.uah}
+                            rub={curr.rub}
+                        />
+                    )))}
+                </div>
+            )
         }
         </>
     );

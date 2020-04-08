@@ -1,13 +1,11 @@
-.wrapper1 {
-    width: 78%;
-    margin: 0 auto;
-}
 .crypto_currency_cards {
     text-align: center;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 18px;
-    padding: 10% 0 6%;
+    padding: 5% 0;
+    width: 78%;
+    margin: 0 auto;
 }
 .selected_curr {
     color: #7dacf3;
@@ -15,7 +13,7 @@
     padding-bottom: 40px;
 }
 .loader {
-    height: 50vh;
+    height: 40vh;
 }
 @media screen and (max-width: 1010px) {
     .crypto_currency_cards{
