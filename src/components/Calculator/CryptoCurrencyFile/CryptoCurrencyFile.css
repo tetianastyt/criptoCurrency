@@ -3,6 +3,10 @@
     background: #0d2f52;
     display: flex;
 }
+.currency__card:active, .currency__card:hover {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
 .currency__card p{
     margin-top: 10px;
     font-weight: bold;

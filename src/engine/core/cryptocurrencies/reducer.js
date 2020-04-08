@@ -6,8 +6,9 @@ const initialState = {
     ETHrates: {},
     XRPrates: {},*/
     error: null,
+    isLoading: true,
     selectedCryptoWidget: "btc",
-    selectedNationalCurr: "usd",
+    selectedNationalCurr: "uah",
     volume: ''
 };
 
@@ -42,6 +43,12 @@ export function cryptoReducer(state = initialState, action) {
             return {
                 ...state,
                 error: payload
+            }
+        }
+        case types.SET_IS_LOADING: {
+            return {
+                ...state,
+                isLoading: payload
             }
         }
         case types.SET_SELECTED_CRYPTO_WIDGET: {

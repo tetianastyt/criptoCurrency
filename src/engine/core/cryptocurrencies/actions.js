@@ -33,6 +33,10 @@ export const setVolume = (value) => ({
     type: types.SET_VOLUME,
     payload: value,
 });
+export const setIsLoading = (bool) => ({
+    type: types.SET_IS_LOADING,
+    payload: bool,
+})
 
 
 /*export const getExchangeRates = () => {
