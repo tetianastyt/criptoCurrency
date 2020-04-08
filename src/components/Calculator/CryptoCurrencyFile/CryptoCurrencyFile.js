@@ -3,9 +3,8 @@ import BTC from "./BTC.png";
 import ETH from "./ETH.png";
 import XRP from "./XRP.png";
 import './CryptoCurrencyFile.css'
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import {setSelectedCryptoWidget} from "../../../engine/core/cryptocurrencies/actions";
-import * as selectors from "../../../engine/core/cryptocurrencies/selectors";
 
 function CryptoCurrencyFile (props) {
     const { name, usd, uah, rub } = props;
