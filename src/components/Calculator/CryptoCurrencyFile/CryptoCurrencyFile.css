@@ -2,6 +2,7 @@
     padding: 25px 20px;
     background: #0d2f52;
     display: flex;
+    color: #7dacf3;
 }
 .currency__card:active, .currency__card:hover {
     outline: 0;
@@ -10,14 +11,9 @@
 .currency__card p{
     margin-top: 6px;
     font-weight: bold;
-}
-.left {
-}
-.right {
-    font-weight: bold;
+    color: #86c551;
 }
 .right ul{
-    font-weight: bold;
     text-align: left;
     list-style-type: none;
 }

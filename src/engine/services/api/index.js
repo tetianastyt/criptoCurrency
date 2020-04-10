@@ -3,9 +3,10 @@ import axios from 'axios';
 class Api {
     constructor() {
         this.http = axios.create({ baseURL: 'https://api.kuna.io/v3/exchange-rates' });
-        this.getBTCexchangeRate = this.getBTCexchangeRate.bind(this);
+        this.getExchangeRates = this.getExchangeRates.bind(this);
+        /*this.getBTCexchangeRate = this.getBTCexchangeRate.bind(this);
         this.getETHexchangeRate = this.getETHexchangeRate.bind(this);
-        this.getXRPexchangeRate = this.getXRPexchangeRate.bind(this);
+        this.getXRPexchangeRate = this.getXRPexchangeRate.bind(this);*/
     }
 
     static getInstance() {
@@ -14,8 +15,10 @@ class Api {
         }
         return Api.instance;
     }
-
-    getBTCexchangeRate() {
+    getExchangeRates() {
+        return this.http.get('/');
+    }
+    /*getBTCexchangeRate() {
         return this.http.get('/btc');
     }
     getETHexchangeRate() {
@@ -23,7 +26,7 @@ class Api {
     }
     getXRPexchangeRate() {
         return this.http.get('/xrp')
-    }
+    }*/
 }
 
 export default Api.getInstance();

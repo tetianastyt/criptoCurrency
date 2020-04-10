@@ -3,10 +3,26 @@ import {setAllExchangeRates, setError, setIsLoading} from '../../actions'
 import Api from '../../../../services/api/index';
 
 export function* callGetRatesWorker() {
-    let rates = [];
-    const isLoading = yield select (state => state.cryptocurrencies.isLoading);
+    const isLoading = yield select(state => state.cryptocurrencies.isLoading);
     if (!isLoading) yield put(setIsLoading(true));
+
     try {
+        const response = yield call(Api.getExchangeRates);
+        if (response && response.status >= 200 && response.status < 400) {
+            const responseData = response.data;
+            const rates = responseData.filter((item) => {
+                return item.currency === 'btc' ||
+                    item.currency === 'eth' ||
+                    item.currency === 'xrp'
+            });
+            yield put(setAllExchangeRates(rates));
+        }
+    } catch (err) {
+        yield put(setError(err));
+    }
+    yield put(setIsLoading(false));
+}
+    /*try {
         const response = yield call(Api.getBTCexchangeRate);
         if (response && response.status >= 200 && response.status < 400) {
             const responseData = response.data;
@@ -36,10 +52,9 @@ export function* callGetRatesWorker() {
         }
     } catch (err) {
         yield put(setError(err));
-    }
-    yield put(setAllExchangeRates(rates));
-    yield put(setIsLoading(false));
-}
+    }*/
+    //yield put(setAllExchangeRates(rates));
+
 
 
 /*

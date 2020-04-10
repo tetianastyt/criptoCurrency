@@ -11,8 +11,8 @@ function CryptoCurrencyFile (props) {
 
     const dispatch = useDispatch();
     const selectWidget = useCallback(()  => {
-        dispatch(setSelectedCryptoWidget(props.name))
-    }, [dispatch, props.name]);
+        dispatch(setSelectedCryptoWidget(name))
+    }, [dispatch, name]);
 
     return (
         <div className="currency__card" onClick={selectWidget}>
@@ -24,9 +24,9 @@ function CryptoCurrencyFile (props) {
             </div>
             <div className="right">
                 <ul>
-                    <li>USD:  {usd}</li>
-                    <li>UAH:  {uah}</li>
-                    <li>RUB:  {rub}</li>
+                    <li><b>USD:</b>  {usd}</li>
+                    <li><b>UAH:</b>  {uah}</li>
+                    <li><b>RUB:</b>  {rub}</li>
                 </ul>
             </div>
         </div>
