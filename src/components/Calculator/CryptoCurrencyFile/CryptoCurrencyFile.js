@@ -1,7 +1,7 @@
 import React, {useCallback} from "react";
-import BTC from "./BTC.png";
-import ETH from "./ETH.png";
-import XRP from "./XRP.png";
+import BTC from "../../../assets/images/BTC.png";
+import ETH from "../../../assets/images/ETH.png";
+import XRP from "../../../assets/images/XRP.png";
 import './CryptoCurrencyFile.css'
 import {useDispatch} from "react-redux"
 import {setSelectedCryptoWidget} from "../../../engine/core/cryptocurrencies/actions";

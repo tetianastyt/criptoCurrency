@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import './Calculator.css';
-import Loader from './Loading.gif'
+import Loader from '../../assets/images/Loading.gif'
 import { asyncActions } from "../../engine/core/cryptocurrencies/saga/asyncActions"
 import CryptoCurrencyFile from "./CryptoCurrencyFile/CryptoCurrencyFile";
 import Input from "./Input/Input";
@@ -10,35 +10,34 @@ import Result from "./Result/Result";
 import * as selectors from "../../engine/core/cryptocurrencies/selectors";
 
 function ForDoingCalculator() {
-    const dispatch = useDispatch();
-    const data = useSelector(selectors.allRatesSelector);
-    const isLoading = useSelector(selectors.isLoadingSelector);
+  const dispatch = useDispatch();
+  const data = useSelector(selectors.allRatesSelector);
+  const isLoading = useSelector(selectors.isLoadingSelector);
 
-    useEffect(() => {
-        dispatch(asyncActions.setAllExchangeRateAsync())
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(asyncActions.setAllExchangeRateAsync())
+  }, [dispatch]);
 
-    return (
-        <>
-        {
-        isLoading ?
-                (<img src={Loader} alt="Loader" className="loader"/>) :
-            (
-                <div className="crypto_currency_cards">
-                    {(data.map(curr => (
-                        <CryptoCurrencyFile
-                            key={curr.currency}
-                            name={curr.currency}
-                            usd={curr.usd}
-                            uah={curr.uah}
-                            rub={curr.rub}
-                        />
-                    )))}
-                </div>
-            )
-        }
-        </>
-    );
+  return (
+    <>
+      {isLoading
+        ? <img src={Loader} alt="Loader" className="loader"/>
+        : (
+          <div className="crypto_currency_cards">
+            {(data.map(curr => (
+              <CryptoCurrencyFile
+                key={curr.currency}
+                name={curr.currency}
+                usd={curr.usd}
+                uah={curr.uah}
+                rub={curr.rub}
+              />
+            )))}
+          </div>
+        )
+      }
+    </>
+  );
 }
 
 function Calculator() {

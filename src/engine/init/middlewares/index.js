@@ -1,6 +1,5 @@
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-//import thunk from "redux-thunk";
 
 const logger = createLogger({
     duration: true, // print the duration of each action?
