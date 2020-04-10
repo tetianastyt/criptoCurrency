@@ -1,10 +1,11 @@
-import {apply, put, call} from 'redux-saga/effects'
+import {apply, put, call, select} from 'redux-saga/effects'
 import {setAllExchangeRates, setError, setIsLoading} from '../../actions'
 import Api from '../../../../services/api/index';
 
 export function* callGetRatesWorker() {
     let rates = [];
-    yield put(setIsLoading(true));
+    const isLoading = yield select (state => state.cryptocurrencies.isLoading);
+    if (!isLoading) yield put(setIsLoading(true));
     try {
         const response = yield call(Api.getBTCexchangeRate);
         if (response && response.status >= 200 && response.status < 400) {
@@ -21,7 +22,7 @@ export function* callGetRatesWorker() {
             const responseData = response.data;
             rates.push(responseData);
             //console.log(rates);
-            //yield put(setETHexchangeRate(responseData))
+            //yield put(setETHexchangeRate(responseData));
         }
     } catch (err) {
         yield put(setError(err));

@@ -13,6 +13,7 @@ function Select() {
     const handleChangeSelect = useCallback((val) => {
         dispatch(setSelectedNationalCurrency(val));
     }, [dispatch]);
+
     return (
             <div className="national_currs">
                 <ToggleButtonGroup type="radio"

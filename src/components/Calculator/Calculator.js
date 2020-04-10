@@ -46,6 +46,7 @@ function Calculator() {
 
     return (
         <div>
+            {console.log("rendering")}
             <ForDoingCalculator/>
             <div className="selected_curr">
                 Selected coin: <b> {selectedCryptoWidget.toUpperCase()} </b>
