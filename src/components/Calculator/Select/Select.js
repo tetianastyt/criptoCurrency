@@ -1,10 +1,10 @@
-import React, { useCallback} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import './Select.css';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import { selectedNatCurrSelector } from "../../../engine/core/cryptocurrencies/selectors";
-import {setSelectedNationalCurrency} from "../../../engine/core/cryptocurrencies/actions";
+import { setSelectedNationalCurrency } from "../../../engine/core/cryptocurrencies/actions";
+import './Select.css';
 
 function Select() {
     const selectedNationalCurr = useSelector(selectedNatCurrSelector);
@@ -15,18 +15,20 @@ function Select() {
     }, [dispatch]);
 
     return (
-            <div className="national_currs">
-                <ToggleButtonGroup type="radio"
-                                   name="options"
-                                   defaultValue={selectedNationalCurr}
-                                   className="buttons_group"
-                                   onChange={handleChangeSelect}>
-                    <ToggleButton value={"usd"} className="btn">USD</ToggleButton>
-                    <ToggleButton value={"uah"} className="btn">UAH</ToggleButton>
-                    <ToggleButton value={"rub"} className="btn">RUB</ToggleButton>
-                </ToggleButtonGroup>
-            </div>
-    )
+        <div className="national_currs">
+            <ToggleButtonGroup
+                type="radio"
+                name="options"
+                defaultValue={selectedNationalCurr}
+                className="buttons_group"
+                onChange={handleChangeSelect}
+            >
+                <ToggleButton value="usd" className="btn">USD</ToggleButton>
+                <ToggleButton value="uah" className="btn">UAH</ToggleButton>
+                <ToggleButton value="rub" className="btn">RUB</ToggleButton>
+            </ToggleButtonGroup>
+        </div>
+    );
 }
 
 export default Select;

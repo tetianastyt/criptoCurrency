@@ -14,7 +14,7 @@ export const sumSelector = createSelector(
     (rates, crypto, national, volume) => {
         if (volume) {
             let obj = rates.filter(item => item.currency === crypto)[0];
-            let price = obj[`${national}`];
+            let price = obj[national];
             return price * volume
         }
     }

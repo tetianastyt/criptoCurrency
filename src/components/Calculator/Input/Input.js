@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useCallback} from 'react';
+import React, {useLayoutEffect, useRef, useCallback} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import './Input.css';
 import {setVolume} from "../../../engine/core/cryptocurrencies/actions";
@@ -11,6 +11,7 @@ function Input() {
 
     const volumeOnChange = useCallback((ev) => {
         const value = ev.target.value;
+
         if (isFinite(value)) {
             dispatch(setVolume(value));
         } else {
@@ -19,20 +20,22 @@ function Input() {
         }
     }, [dispatch]);
 
-    useEffect(() => {
-        textInput.current.focus();
+    useLayoutEffect(() => {
+        if (textInput.current) {
+            textInput.current.focus();
+        }
     }, []);
 
     return (
         <>
-        Volume:
-        <input
-            className="styledInput"
-            ref={textInput}
-            value={volume}
-            onChange={volumeOnChange}
-            placeholder="1234567890"
-        />
+            Volume:
+            <input
+                className="styledInput"
+                ref={textInput}
+                value={volume}
+                onChange={volumeOnChange}
+                placeholder="1234567890"
+            />
         </>
     );
 }

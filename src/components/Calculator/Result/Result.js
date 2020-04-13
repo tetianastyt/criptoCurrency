@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useSelector} from "react-redux";
 import * as selectors from "../../../engine/core/cryptocurrencies/selectors";
 
@@ -8,13 +8,9 @@ function Result() {
     const selectedCryptoWidget = useSelector(selectors.selectedCryptoWidgetSelector);
     const sum = useSelector(selectors.sumSelector);
 
-    useEffect(() => {
-
-    }, [selectedCryptoWidget, selectedNationalCurr, volume]);
-
     return (
         <>
-            <br></br>
+            <br />
             <b>{volume} {selectedCryptoWidget.toUpperCase()} </b>
             will be <b>{sum}</b> in <b>{selectedNationalCurr.toUpperCase()}</b>
         </>
