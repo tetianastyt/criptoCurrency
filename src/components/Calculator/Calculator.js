@@ -1,13 +1,14 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Calculator.css';
-import Loader from '../../assets/images/Loading.gif'
-import { asyncActions } from "../../engine/core/cryptocurrencies/saga/asyncActions"
-import CryptoCurrencyFile from "./CryptoCurrencyFile/CryptoCurrencyFile";
-import Input from "./Input/Input";
-import Select from "./Select/Select";
-import Result from "./Result/Result";
-import * as selectors from "../../engine/core/cryptocurrencies/selectors";
+import Loader from '../../assets/images/Loading.gif';
+import { asyncActions } from '../../engine/core/cryptocurrencies/saga/asyncActions';
+import * as selectors from '../../engine/core/cryptocurrencies/selectors';
+import CryptoCurrencyFile from './CryptoCurrencyFile/CryptoCurrencyFile';
+import Input from './Input/Input';
+import Select from './Select/Select';
+import Result from './Result/Result';
+
 
 function ForDoingCalculator() {
   const dispatch = useDispatch();
@@ -41,19 +42,19 @@ function ForDoingCalculator() {
 }
 
 function Calculator() {
-    const selectedCryptoWidget = useSelector(selectors.selectedCryptoWidgetSelector);
+  const selectedCryptoWidget = useSelector(selectors.selectedCryptoWidgetSelector);
 
-    return (
-        <div>
-            <ForDoingCalculator/>
-            <div className="selected_curr">
-                Selected coin: <b> {selectedCryptoWidget.toUpperCase()} </b>
-            </div>
-            <Input/>
-            <Select/>
-            <Result/>
-        </div>
-    )
+  return (
+    <div>
+      <ForDoingCalculator/>
+      <div className="selected_curr">
+        Selected coin: <b> {selectedCryptoWidget.toUpperCase()} </b>
+      </div>
+      <Input/>
+      <Select/>
+      <Result/>
+    </div>
+  )
 }
 
 export default Calculator;

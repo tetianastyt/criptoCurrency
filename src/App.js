@@ -1,8 +1,8 @@
 import React from 'react';
-import { Provider } from "react-redux";
-import Calculator from "./components/Calculator/Calculator";
+import { Provider } from 'react-redux';
+import Calculator from './components/Calculator/Calculator';
 import './App.css';
-import { store } from "./engine/init/store";
+import { store } from './engine/init/store';
 
 function App() {
   return (

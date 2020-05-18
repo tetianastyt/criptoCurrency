@@ -4,7 +4,7 @@ import { all, call } from 'redux-saga/effects';
 import { currenciesWatcher } from '../../core/cryptocurrencies/saga/watchers';
 
 export function* rootSaga() {
-    yield all([
-        call(currenciesWatcher)
-    ]);
+  yield all([
+    call(currenciesWatcher)
+  ]);
 }

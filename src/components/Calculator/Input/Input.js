@@ -1,43 +1,38 @@
-import React, {useLayoutEffect, useRef, useCallback} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import React, { useLayoutEffect, useRef, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './Input.css';
-import {setVolume} from "../../../engine/core/cryptocurrencies/actions";
-import {volumeSelector} from "../../../engine/core/cryptocurrencies/selectors";
+import { actions } from '../../../engine/core/cryptocurrencies/actions';
+import { volumeSelector } from '../../../engine/core/cryptocurrencies/selectors';
 
 function Input() {
-    const textInput = useRef(null);
-    const dispatch = useDispatch();
-    const volume = useSelector(volumeSelector);
+  const textInput = useRef(null);
+  const dispatch = useDispatch();
+  const volume = useSelector(volumeSelector);
 
-    const volumeOnChange = useCallback((ev) => {
-        const value = ev.target.value;
+  const volumeOnChange = useCallback((ev) => {
+    const value = ev.target.value;
+    dispatch(actions.setVolume(value));
+  }, [dispatch]);
 
-        if (isFinite(value)) {
-            dispatch(setVolume(value));
-        } else {
-            alert("A u sure you have input only numbers?");
-            dispatch(setVolume(""))
-        }
-    }, [dispatch]);
+  useLayoutEffect(() => {
+    if (textInput.current) {
+      textInput.current.focus();
+    }
+  }, []);
 
-    useLayoutEffect(() => {
-        if (textInput.current) {
-            textInput.current.focus();
-        }
-    }, []);
-
-    return (
-        <>
-            Volume:
-            <input
-                className="styledInput"
-                ref={textInput}
-                value={volume}
-                onChange={volumeOnChange}
-                placeholder="1234567890"
-            />
-        </>
-    );
+  return (
+    <>
+      Volume:
+      <input
+        type="number"
+        className="styledInput"
+        ref={textInput}
+        value={volume}
+        onChange={volumeOnChange}
+        placeholder="1234567890"
+      />
+    </>
+  );
 }
 
 export default Input;

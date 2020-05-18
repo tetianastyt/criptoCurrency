@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { cryptoReducer} from "../../core/cryptocurrencies/reducer";
+import { cryptoReducer } from "../../core/cryptocurrencies/reducer";
 
 const rootReducer = () => combineReducers({
-    cryptocurrencies: cryptoReducer,
+  cryptocurrencies: cryptoReducer,
 });
 
-export { rootReducer };
+export {rootReducer};
