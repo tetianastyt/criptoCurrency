@@ -7,4 +7,4 @@ Also you can calculate the value of cryptocurrencies in selected national curren
 
 Exchange rates information is updated every three minutes.
 
-
+The site is published at https://tetianastyt.github.io/cryptoCurrency
